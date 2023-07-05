@@ -1,0 +1,39 @@
+
+<div class="outer-div">
+    <div class="inner-div-manage">
+      Add Designation
+    </div>
+    <div class="inner-div">
+      
+        <form class="example-form">
+            <mat-form-field class="example-form-field">
+              <mat-label>Branch Name</mat-label>
+              <mat-select placeholder="Branch Name"  name="selectedBranch" required>
+                <mat-option ></mat-option>
+              </mat-select>
+            </mat-form-field>
+          
+            <mat-form-field class="example-form-field">
+              <mat-label>Department Name</mat-label>
+              <input matInput placeholder="Department Name" name="departmentName" required>
+            </mat-form-field>
+          
+         
+            <mat-checkbox class="example-form-field"  name="activeStatus">Active Status</mat-checkbox>
+            
+
+              <div class="button-group">
+                <button mat-raised-button color="primary">Submit</button>
+                
+                <a  mat-raised-button color="warn" routerLink="/emp-designation">Cancel</a>
+              </div>
+           
+          </form>
+          
+          
+      
+    </div>
+  </div>
+
+
+
