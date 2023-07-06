@@ -10,6 +10,7 @@ import { EmpAddBranchComponent } from './employee/emp-add-branch/emp-add-branch.
 import { EmpAddDepartmentComponent } from './Employee/emp-add-department/emp-add-department.component';
 import { EmpAddDesignationComponent } from './Employee/emp-add-designation/emp-add-designation.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { EmpAddDetailsComponent } from './Employee/emp-add-details/emp-add-details.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'emp-add-desig',
     component: EmpAddDesignationComponent
+  },
+  {
+    path: 'emp-add-details',
+    component: EmpAddDetailsComponent
   }
 ];
 

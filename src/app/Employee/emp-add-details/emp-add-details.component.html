@@ -1,0 +1,281 @@
+<div class="outer-div">
+    <div class="inner-div-manage">
+        Add Employee
+    </div>
+    <div class="inner-div">
+
+        <mat-accordion>
+            <mat-expansion-panel [expanded]="true">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Office Details
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Emp Code</mat-label>
+                            <input matInput formControlName="empCode" placeholder="EmpCode">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Branch</mat-label>
+                            <mat-select formControlName="branch">
+                                <mat-option value="option1">Option 1</mat-option>
+                                <mat-option value="option2">Option 2</mat-option>
+                                <mat-option value="option3">Option 3</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Department</mat-label>
+                            <mat-select formControlName="departmet">
+                                <mat-option value="option1">Option 1</mat-option>
+                                <mat-option value="option2">Option 2</mat-option>
+                                <mat-option value="option3">Option 3</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Designation</mat-label>
+                            <mat-select formControlName="designation">
+                                <mat-option value="option1">Option 1</mat-option>
+                                <mat-option value="option2">Option 2</mat-option>
+                                <mat-option value="option3">Option 3</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Personal Information
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Name</mat-label>
+                            <input matInput formControlName="empname" placeholder="Employee Name">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Father Name</mat-label>
+                            <input matInput formControlName="empFather" placeholder="Father Name">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Gender</mat-label>
+                            <mat-select formControlName="gender">
+                                <mat-option value="option1" selected>Select</mat-option>
+                                <mat-option value="option2">Male</mat-option>
+                                <mat-option value="option3">Female</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Religion</mat-label>
+                            <input matInput formControlName="empRelision" placeholder="Religion">
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Blood Group</mat-label>
+                            <input matInput formControlName="cmpBloodgroup" placeholder="Blood Group">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <input matInput formControlName="dateOfJoin" placeholder="DateOfJoin"
+                                [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Mobile</mat-label>
+                            <input matInput formControlName="empMobile" placeholder="Mobile">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="empEmail" placeholder="Email Address">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Image</mat-label>
+                            <input matInput formControlName="empMobile" placeholder="Mobile">
+                        </mat-form-field>
+                    </div>
+
+                </div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Address Details
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div class="row">
+
+
+                    <div class="col-sm-6">
+                        <mat-form-field>
+                            <mat-label>Present Address</mat-label>
+                            <textarea matInput formControlName="address" rows="5"
+                                placeholder="Enter your present address"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-6">
+                        <mat-form-field>
+                            <mat-label>Permanent Address</mat-label>
+                            <textarea matInput formControlName="address" rows="5"
+                                placeholder="Enter your permanent address"></textarea>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Login Details
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>User Name</mat-label>
+                            <input matInput formControlName="username" placeholder="User Name">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Password</mat-label>
+                            <input matInput formControlName="password" placeholder="Password">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Confirm Password</mat-label>
+                            <input matInput formControlName="confirmpassword" placeholder="Confirm password">
+                        </mat-form-field>
+                    </div>
+
+                </div>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Social Media
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Face Book</mat-label>
+                            <input matInput formControlName="facebook" placeholder="Facebook">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>Twitter</mat-label>
+                            <input matInput formControlName="twitter" placeholder="Twitter">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-sm-3">
+                        <mat-form-field>
+                            <mat-label>LinkedIn</mat-label>
+                            <input matInput formControlName="linkedin" placeholder="Linkedin">
+                        </mat-form-field>
+                    </div>
+
+                </div>
+            </mat-expansion-panel>
+
+            <!-- Add more accordion items as needed -->
+        </mat-accordion>
+
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Bank Details
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="row">
+
+                <mat-checkbox formControlName="skipBankDetails">Skip Bank Details</mat-checkbox>
+                <div class="col-sm-3">
+                    <mat-form-field>
+                        <mat-label>Bank Name</mat-label>
+                        <input matInput formControlName="bankname" placeholder="Bank Name">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-3">
+                    <mat-form-field>
+                        <mat-label>Holder Name</mat-label>
+                        <input matInput formControlName="holdername" placeholder="Holder Name">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-3">
+                    <mat-form-field>
+                        <mat-label>Bank Branch</mat-label>
+                        <input matInput formControlName="bankbranch" placeholder="Bank Branch">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-3">
+                    <mat-form-field>
+                        <mat-label>Bank Address</mat-label>
+                        <textarea matInput formControlName="bankaddress" rows="5" placeholder="Bank Address"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-3">
+                    <mat-form-field>
+                        <mat-label>IFSC Code</mat-label>
+                        <input matInput formControlName="ifsccode" placeholder="IFSC Code">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-3">
+                    <mat-form-field>
+                        <mat-label>Account Number</mat-label>
+                        <input matInput formControlName="accountnumber" placeholder="Account Number">
+                    </mat-form-field>
+                </div>
+                <div class="col-sm-3">
+
+                </div>
+            </div>
+        </mat-expansion-panel>
+        <div class="row" style="margin-top: 5px;">
+            <mat-checkbox formControlName="skipBankDetails">Active Status</mat-checkbox>
+        </div>
+        
+        <div class="button-group">
+            <button mat-raised-button color="primary">Submit</button>
+            <a mat-raised-button color="warn" routerLink="/emp-department">Cancel</a>
+          </div>
+    </div>
+</div>

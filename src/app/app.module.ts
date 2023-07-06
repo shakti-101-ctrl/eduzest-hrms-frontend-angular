@@ -45,6 +45,7 @@ import { EmpAddBranchComponent } from './employee/emp-add-branch/emp-add-branch.
 import { EmpAddDepartmentComponent } from './Employee/emp-add-department/emp-add-department.component';
 import { EmpAddDesignationComponent } from './Employee/emp-add-designation/emp-add-designation.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { EmpAddDetailsComponent } from './Employee/emp-add-details/emp-add-details.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     EmpAddBranchComponent,
     EmpAddDepartmentComponent,
     EmpAddDesignationComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    EmpAddDetailsComponent
   ],
   imports: [
     BrowserModule,
