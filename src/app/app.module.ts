@@ -46,6 +46,7 @@ import { EmpAddDepartmentComponent } from './Employee/emp-add-department/emp-add
 import { EmpAddDesignationComponent } from './Employee/emp-add-designation/emp-add-designation.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { EmpAddDetailsComponent } from './Employee/emp-add-details/emp-add-details.component';
+import { SideMenuComponent } from './side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { EmpAddDetailsComponent } from './Employee/emp-add-details/emp-add-detai
     EmpAddDepartmentComponent,
     EmpAddDesignationComponent,
     WelcomeComponent,
-    EmpAddDetailsComponent
+    EmpAddDetailsComponent,
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,

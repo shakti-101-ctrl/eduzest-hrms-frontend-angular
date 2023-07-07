@@ -78,6 +78,174 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-size: 10px;
     color: blueviolet;
 }
+/* Customize the background color and text color of mat-raised-button */
+.mat-raised-button {
+  background-color: #333; /* Adjust the background color as needed */
+  color: #fff; /* Adjust the text color as needed */
+  font-size: 10px;
+}
+
+/* Add additional styles for specific mat-raised-button variants */
+.mat-raised-button.primary-button {
+  /* Custom styles for a specific mat-raised-button with the "primary-button" class */
+}
+
+/* Add hover and active effects to mat-raised-button */
+.mat-raised-button:hover,
+.mat-raised-button:active {
+  background-color: #ff0000; /* Adjust the hover/active background color as needed */
+  color: #fff; /* Adjust the hover/active text color as needed */
+  cursor: pointer;
+}
 
 
-  
+/*search  var*/
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 300px; /* Adjust the width as needed */
+}
+
+.search-button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.icon-button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.icon-button i {
+  font-size: 18px;
+}
+
+.icon-button:hover {
+  background-color: hsl(0, 7%, 82%); /* Adjust the hover color as needed */
+}
+
+
+.fixed-header {
+  height: 100px;
+  background-color:rgb(223, 226, 221);
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* Adjust the padding as needed */
+}
+
+.logo-container {
+  margin-right: auto;
+}
+
+.logo {
+  height: 30px; /* Adjust the height of the logo as needed */
+  width: auto;
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.header-button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.header-button:hover {
+  background-color: #ff0000; /* Adjust the hover color as needed */
+}
+
+/* Add additional styles for the header content */
+
+/* Add additional styles for the header content */
+.button-group {
+  display: flex;
+  align-items: center;
+}
+
+.icon-button {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-button i {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.icon-button span {
+  font-size: 14px;
+}
+
+.icon-button:hover {
+  background-color: #ff0000; /* Adjust the hover color as needed */
+}
+
+
+.side-menu {
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  padding: 10px;
+  border-bottom: 1px solid #555;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.menu-item.active {
+  background-color: #ff0000;
+}

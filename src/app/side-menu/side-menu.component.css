@@ -1,0 +1,29 @@
+.side-menu {
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  padding: 10px;
+  border-bottom: 1px solid #555;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-item a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.menu-item.active {
+  background-color: #ff0000;
+}

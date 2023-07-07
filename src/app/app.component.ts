@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'EDUZEST HRMS';
-
+  logoPath : string = "assets/logo@2.png"
 
 }
