@@ -1,0 +1,68 @@
+.custom-div {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    height: auto; /* Set a height for demonstration purposes */
+  }
+
+  .form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .form-container h2 {
+    text-align: center;
+  }
+  
+  .form-container label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-container input[type="text"],
+  .form-container input[type="number"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .form-container button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .custom-input {
+    width: 30%;
+    border: 1px solid blue;
+    border-radius: 0px;
+    padding: 10px;
+  }
+  
+  .custom-dropdown {
+    width: 30%;
+    border: 1px solid blue;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: white;
+  }
+
+  .form-control
+  {
+    width: 50%;
+    border: 1px solid blue;
+    border-radius: 0px;
+    padding: 10px;
+    height: 40px;
+    font-size: 15px;
+  }

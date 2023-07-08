@@ -1,1 +1,221 @@
-<p>emp-salarytemplate works!</p>
+<div class="row">
+  <div>
+    <div class="row">
+      <mat-tab-group>
+       <mat-tab label="Template List">
+        <i class="fa-thin fa-list"></i>
+          <div class="outer-div" style="padding: 5px;">
+           
+            <div class="inner-div">
+              <div class="row">
+                <div class="col-sm-3">
+                  <a mat-raised-button color="accent" routerLink="/emp-add-branch"><i class="fa fa-plus"
+                      aria-hidden="true"></i> Add</a>
+                </div>
+                <div class="col-sm-6">
+                  <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                    <div class="search-icon"></div>
+                  </div>
+                </div>
+
+                <div class="col-sm-3" style="align-items: right;">
+                  <div class="button-group">
+                    <button class="icon-button">
+                      <i class="fas fa-print"></i>
+
+                    </button>
+                    <button class="icon-button">
+                      <i class="fas fa-download"></i>
+
+                    </button>
+                    <button class="icon-button">
+                      <i class="fas fa-file-excel"></i>
+
+                    </button>
+                    <button class="icon-button">
+                      <i class="fas fa-file-pdf"></i>
+
+                    </button>
+                  </div>
+
+                </div>
+
+              </div>
+
+
+            </div>
+
+            <div class="inner-div">
+              <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource">
+
+                  <!-- Position Column -->
+                  <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name</th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                  </ng-container>
+
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef> Email </th>
+                    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                  </ng-container>
+
+                  <!-- Weight Column -->
+                  <ng-container matColumnDef="phone">
+                    <th mat-header-cell *matHeaderCellDef> Phone </th>
+                    <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+                  </ng-container>
+
+                  <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let element">
+                      <button mat-icon-button color="primary">
+                        <mat-icon>edit</mat-icon>
+                      </button>
+                      <button mat-icon-button color="warn">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                    </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="pageSizeOptions" [pageSize]="pageSize"
+                  (page)="onPageChange($event)"></mat-paginator>
+              </div>
+
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Create Template">
+          <div style="margin-top: 10px;">
+
+            <div class="row">
+              <div class="col-sm-2">
+              </div>
+              <div class="col-sm-8">
+                <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-4 col-form-label">Branch</label>
+                  <div class="col-sm-8">
+                    <select>
+                      <option>--Select--</option>
+                      <option>Abc</option>
+                      <option>Xyz</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-4 col-form-label">Salary Grade</label>
+                  <div class="col-sm-8">
+                    <input type="text" readonly id="staticEmail">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-4 col-form-label">Basic Salary</label>
+                  <div class="col-sm-8">
+                    <input type="text" readonly id="staticEmail">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-4 col-form-label">Overtime Rate(Per Hour)</label>
+                  <div class="col-sm-8">
+                    <input type="text" readonly id="staticEmail">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-sm-6" style="border: 1px silver;">
+                <h3>Allowances</h3>
+                <hr />
+                <div *ngFor="let row of getIndexArrayAllowances(); let i = index">
+                  <input type="text" [(ngModel)]="allowancename[row].text" placeholder="Allowance Name">
+                  <input type="text" style="margin-left: 2px;" [(ngModel)]="allowanceamount[row].text"
+                    placeholder="Enter Ammount">
+
+                  <button style="background-color: red;" (click)="removeRowAllowance(i)"><i
+                      class="fa-sharp fa-solid fa-xmark"></i></button>
+                </div>
+
+                <button (click)="addRowAllowance()"><i class="fa-sharp fa-solid fa-plus"></i> Add Row</button>
+
+                
+
+              </div>
+              <div class="col-sm-6" style="border: 1px silver;">
+                <h3>Deductions</h3>
+                <hr />
+                <div *ngFor="let row of getIndexArrayDeduction(); let i = index">
+
+                  <input type="text" [(ngModel)]="deductname[row].text" placeholder="Deduction Name">
+                  <input style="margin-left: 2px;" type="text" [(ngModel)]="deductamount[row].text"
+                    placeholder="Enter Ammount">
+
+
+                  <button style="background-color: red;" (click)="removeRowDeduction(i)"><i
+                      class="fa-sharp fa-solid fa-xmark"></i></button>
+                </div>
+
+                <button (click)="addRowDeduction()"><i class="fa-sharp fa-solid fa-plus"></i> Add Row</button>
+
+              
+              </div>
+
+            </div>
+
+            <div class="row" style="margin-top: 20px;">
+              <div class="col-sm-6"></div>
+              <div class="col-sm-6">
+                <h3>Salary Details</h3>
+                <hr />
+                <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-4 col-form-label">Basic Salary</label>
+                  <div class="col-sm-8">
+                    <input type="text" readonly id="staticEmail">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-4 col-form-label">Total Allowances</label>
+                  <div class="col-sm-8">
+                    <input type="text" readonly id="staticEmail" value="{{totalallowance}}">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-4 col-form-label">Total Deduction</label>
+                  <div class="col-sm-8">
+                    <input type="text" readonly id="staticEmail" value="{{totaldeduct}}">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="staticEmail" class="col-sm-4 col-form-label">Net Salary</label>
+                  <div class="col-sm-8">
+                    <input type="text" readonly id="staticEmail">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-9"></div>
+                <div class="col-sm-3">
+                  <button>Save</button><button>Cancel</button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

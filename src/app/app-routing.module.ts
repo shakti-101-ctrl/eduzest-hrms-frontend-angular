@@ -12,6 +12,8 @@ import { EmpAddDesignationComponent } from './Employee/emp-add-designation/emp-a
 import { WelcomeComponent } from './welcome/welcome.component';
 import { EmpAddDetailsComponent } from './Employee/emp-add-details/emp-add-details.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
+import { EmpLoginComponent } from './emp-login/emp-login.component';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {

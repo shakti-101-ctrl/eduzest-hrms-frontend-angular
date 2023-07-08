@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmpBranchComponent } from './Employee/emp-branch/emp-branch.component';
@@ -47,6 +47,7 @@ import { EmpAddDesignationComponent } from './Employee/emp-add-designation/emp-a
 import { WelcomeComponent } from './welcome/welcome.component';
 import { EmpAddDetailsComponent } from './Employee/emp-add-details/emp-add-details.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
+import { EmpLoginComponent } from './emp-login/emp-login.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     EmpAddDesignationComponent,
     WelcomeComponent,
     EmpAddDetailsComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    EmpLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -101,7 +103,8 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     MatTableModule,
     MatTabsModule,
     MatToolbarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -249,3 +249,30 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .menu-item.active {
   background-color: #ff0000;
 }
+
+
+/*search bar*/
+.search-box {
+  position: relative;
+  display: inline-block;
+}
+
+.search-box input[type="text"] {
+  padding: 10px;
+  padding-right: 40px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.search-box .search-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: url("../src/assets/search.png") center/contain no-repeat;
+  cursor: pointer;
+}

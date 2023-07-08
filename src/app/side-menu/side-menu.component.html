@@ -1,16 +1,21 @@
-<div class="side-menu">
-  <ul class="menu-list">
-    <li class="menu-item active">
-      <a href="#">Home</a>
-    </li>
-    <li class="menu-item">
-      <a href="#">About</a>
-    </li>
-    <li class="menu-item">
-      <a href="#">Services</a>
-    </li>
-    <li class="menu-item">
-      <a href="#">Contact</a>
-    </li>
-  </ul>
+<div *ngFor="let row of getIndexArray(); let i = index">
+  <input type="text" [(ngModel)]="allowance[row].text" placeholder="Enter text">
+  <input type="text" [(ngModel)]="rows[row].text" placeholder="Enter text">
+  
+  <button (click)="removeRow(i)">Remove</button>
 </div>
+
+<button (click)="addRow()">Add Row</button>
+
+<button (click)="getValues()">Get Values</button>
+
+
+<br/>
+<div *ngFor="let row of rows1; let i = index">
+  <input type="text" [(ngModel)]="row.text" placeholder="Enter text">
+  <button (click)="removeRow1(i)">Remove</button>
+</div>
+
+<button (click)="addRow1()">Add Row</button>
+
+<button (click)="getValues1()">Get Values</button>
