@@ -28,12 +28,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
      padding: 5px;
   }
   .inner-div {
-    margin: 10px; /* Set the same margin value as the outer div */
+    margin: 5px; /* Set the same margin value as the outer div */
+    padding: 1px;
      /* Just for visualization purposes */
   }
   .outer-div {
-    margin: 20px; /* Set the desired margin */
-    background-color: whitesmoke; /* Just for visualization purposes */
+    margin: 0px; /* Set the desired margin */
+    padding: 1px;
+    background-color: #e0e2e5; /* Just for visualization purposes */
   }
   
 

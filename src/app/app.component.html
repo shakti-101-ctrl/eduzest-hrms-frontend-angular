@@ -1,6 +1,6 @@
 
 <div class="container-fluid">
-  <header class="fixed-header">
+  <header class="fixed-header" *ngIf="isHeaderMenu">
     <div class="logo-container">
       <img [src]="logoPath" class="logo">
     </div>
@@ -17,10 +17,10 @@
     <!-- Header content goes here -->
   </header>
   
-  <div class="row margin-body" style="margin-top: 70px;">
-    <div class="col-3">
+  <div class="row" style="margin-top: 70px;">
+    <div class="col-sm-3" *ngIf="isSideMenu">
     
-      <div style="width: 18rem;">
+      <div style="width: 18rem;"  >
         <div class="side-menu">
           <ul class="menu-list">
             <li class="menu-item active">
@@ -46,7 +46,7 @@
         
       </div>
 
-      <div style="width: 18rem; margin-top: 5px;">
+      <div style="width: 8rem; margin-top: 5px;">
       
         <div class="side-menu">
           <ul class="menu-list">
@@ -67,19 +67,13 @@
     </div>
 
    
-    <div class="col-9">
+    <div class="col-sm-9">
       
       <!-- Content of the selected menu item goes here -->
       <router-outlet></router-outlet>
     </div>
 
-    <!--<footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <p>Powered by Eduzest Software Pvt. Ltd.</p>
-        </div>
-      </div>
-    </footer>-->
+   
   </div>
  
   

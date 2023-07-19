@@ -48,6 +48,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { EmpAddDetailsComponent } from './Employee/emp-add-details/emp-add-details.component';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { EmpLoginComponent } from './emp-login/emp-login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -104,7 +105,9 @@ import { EmpLoginComponent } from './emp-login/emp-login.component';
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

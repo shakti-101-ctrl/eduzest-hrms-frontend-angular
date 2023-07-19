@@ -64,6 +64,11 @@ const routes: Routes = [
     path: 'app-side-menu',
     component: SideMenuComponent
   }
+  ,
+  {
+    path: 'app-emp-login',
+    component: EmpLoginComponent
+  }
 ];
 
 @NgModule({

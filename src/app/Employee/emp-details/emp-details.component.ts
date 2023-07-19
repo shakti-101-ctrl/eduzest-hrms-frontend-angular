@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { BranchModel } from 'src/app/Model/Employee';
+import { GetResponse } from 'src/app/Model/Response';
+import { EmployeeService } from 'src/app/Service/employee.service';
 export interface UserData {
   name: string;
   email: string;
@@ -21,7 +24,7 @@ export class EmpDetailsComponent implements OnInit {
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
-  constructor() {
+  constructor(private empservice :EmployeeService) {
     const users: UserData[] = [
       { name: 'John Doe', email: 'johndoe@example.com', phone: '1234567890' },
       { name: 'Jane Smith', email: 'janesmith@example.com', phone: '9876543210' },
@@ -30,7 +33,7 @@ export class EmpDetailsComponent implements OnInit {
     this.dataSource = new MatTableDataSource(users);
   }
   ngOnInit(): void {
-    //throw new Error('Method not implemented.');
+    
   }
 
   ngAfterViewInit() {
