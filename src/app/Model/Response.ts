@@ -1,7 +1,7 @@
 
-export interface GetResponse<T>
+export interface GetResponse
 {
-        data :T[];
+        data :any;
         success: string;
         message : string;
         response: number;

@@ -14,6 +14,7 @@ import { EmpAddDetailsComponent } from './Employee/emp-add-details/emp-add-detai
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { EmpLoginComponent } from './emp-login/emp-login.component';
 import { AppComponent } from './app.component';
+import { EmpUpdateBranchComponent } from './employee/emp-update-branch/emp-update-branch.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,10 @@ const routes: Routes = [
   {
     path: 'emp-add-branch',
     component: EmpAddBranchComponent
+  },
+  {
+    path: 'emp-update-branch',
+    component: EmpUpdateBranchComponent
   },
   {
     path: 'emp-add-dept',

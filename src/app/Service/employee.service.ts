@@ -10,26 +10,31 @@ import { CudResponse, GetResponse } from '../Model/Response';
 })
 export class EmployeeService {
   host : string = "";
+  
   constructor(private httpClient : HttpClient) 
   {
     this.host = environment.host;
   }
   //Brach
-  getAllBrances() : Observable<GetResponse<BranchModel>>
+  getAllBrances() : Observable<GetResponse>
   {
-    return this.httpClient.get<GetResponse<BranchModel>>(`${this.host + "branch/getbranches"}`);
+    return this.httpClient.get<GetResponse>(`${this.host + "branch/getbranches"}`);
   }
-  saveBranch(data : BranchModel) : Observable<CudResponse<BranchModel>>
+  saveBranch(data : BranchModel) : Observable<GetResponse>
   {
-    return this.httpClient.post<CudResponse<BranchModel>>(`${this.host + "postbranch"}`,data);
+    return this.httpClient.post<GetResponse>(`${this.host + "branch/postbranch"}`,data);
   }
-  updateBranch(id : string,data:BranchModel) : Observable<CudResponse<BranchModel>>
+  updateBranch(data:BranchModel) : Observable<GetResponse>
   {
-    return this.httpClient.put<CudResponse<BranchModel>>(`${this.host + "putbranch/"+id}`,data);
+    return this.httpClient.put<GetResponse>(`${this.host + "branch/putbranch/"}`,data);
   }
-  getBranchById(id : string) : Observable<CudResponse<BranchModel>>
+  getBranchById(id : string) : Observable<GetResponse>
   {
-    return this.httpClient.get<CudResponse<BranchModel>>(`${this.host + "deletebranch/" + id}`);
+    return this.httpClient.get<GetResponse>(`${this.host + "branch/deletebranch/" + id}`);
   }
-  
+
+  deleteBranch(id : string) : Observable<GetResponse>
+  {
+    return this.httpClient.delete<GetResponse>(`${this.host + "branch/deletebranch/"+id}`);
+  }
 }

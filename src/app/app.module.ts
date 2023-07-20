@@ -49,7 +49,8 @@ import { EmpAddDetailsComponent } from './Employee/emp-add-details/emp-add-detai
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { EmpLoginComponent } from './emp-login/emp-login.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { EmpUpdateBranchComponent } from './employee/emp-update-branch/emp-update-branch.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +66,8 @@ import { HttpClientModule } from '@angular/common/http';
     WelcomeComponent,
     EmpAddDetailsComponent,
     SideMenuComponent,
-    EmpLoginComponent
+    EmpLoginComponent,
+    EmpUpdateBranchComponent
   ],
   imports: [
     BrowserModule,
@@ -107,6 +109,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatTooltipModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

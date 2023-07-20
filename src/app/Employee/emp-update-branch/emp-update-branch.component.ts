@@ -1,17 +1,17 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BranchModel } from 'src/app/Model/Employee';
 import { AppService } from 'src/app/Service/app.service';
 import { EmployeeService } from 'src/app/Service/employee.service';
 
-
 @Component({
-  selector: 'app-emp-add-branch',
-  templateUrl: './emp-add-branch.component.html',
-  styleUrls: ['./emp-add-branch.component.css']
+  selector: 'app-emp-update-branch',
+  templateUrl: './emp-update-branch.component.html',
+  styleUrls: ['./emp-update-branch.component.css']
 })
-export class EmpAddBranchComponent implements OnInit {
+export class EmpUpdateBranchComponent implements OnInit {
+
   registerForm !: FormGroup
   submitted=false;
   branchDetails!: BranchModel;
@@ -20,7 +20,10 @@ export class EmpAddBranchComponent implements OnInit {
   constructor(private fb : FormBuilder,private empService : EmployeeService,private router: Router,private appService : AppService) 
   {
     
-
+    if(appService.temp_data != undefined)
+    {
+      this.branchDetails = appService.temp_data;
+    }
   }
   
   ngOnInit(): void {
@@ -34,31 +37,26 @@ export class EmpAddBranchComponent implements OnInit {
     address:['',Validators.required],
     isactive:[false,Validators.requiredTrue]
    });
-   
   }
   
   onSubmit()
   {
-      this.submitted = true;
-      if (this.registerForm.valid) {
-        this.branchDetails = this.registerForm.value;
-        console.log(this.branchDetails);
-        this.empService.saveBranch(this.branchDetails).subscribe((result)=>{
-          console.log(result);
-          if(result['response']==200)
-          {
-            alert(result['message']);
-            this.router.navigate(['/emp-branch'])
-          }
-          else
-          {
-            alert(result['message']);
-          }
-  
-        });
-        
-      }
+    if(this.registerForm.valid)
+    {
+      this.empService.updateBranch(this.branchDetails).subscribe(result=>{
+
+        if(result['response']==200)
+        {
+          alert(result['message']);
+          this.router.navigate(['/emp-branch']);
+        }
+        else
+        {
+          alert(result['message']);
+        }
+      });
+    }
+    
   }
 
-  
 }

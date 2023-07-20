@@ -1,0 +1,65 @@
+<div class="outer-div">
+    <div class="inner-div-manage">
+      Update Branch
+    </div>
+    <div class="inner-div" style="padding: 6px; background-color: white;">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-6">
+            <mat-form-field>
+              <mat-label>Branch Name</mat-label>
+              <input matInput placeholder="Branch Name" formControlName="branchname" tabindex="1" [(ngModel)]="branchDetails.branchName">
+            </mat-form-field>
+          
+          </div>
+          <div class="col-md-6">
+            <mat-form-field>
+              <mat-label>City</mat-label>
+              <input matInput placeholder="City"  name="city" formControlName="city" tabindex="2" [(ngModel)]="branchDetails.city">
+            </mat-form-field>
+           
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input matInput placeholder="Enter Email" name="email" formControlName="email" required tabindex="3" [(ngModel)]="branchDetails.email">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field>
+              <mat-label>State</mat-label>
+              <input matInput placeholder="Enter State"  name="state" formControlName="state" tabindex="4" [(ngModel)]="branchDetails.state">
+            </mat-form-field> 
+            
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-sm-6">
+            <mat-form-field>
+              <mat-label>Mobile</mat-label>
+              <input matInput placeholder="Enter mobile" name="mobile" formControlName="mobilenumber" tabindex="5" [(ngModel)]="branchDetails.mobileNumber">
+            </mat-form-field>
+          </div>
+          <div class="col-sm-6">
+            <mat-form-field>
+              <mat-label>Address</mat-label>
+              <textarea matInput placeholder="Address"  name="address" formControlName="address" tabIndex="6" [(ngModel)]="branchDetails.address"></textarea>
+            </mat-form-field>
+            
+          </div>
+          <mat-checkbox  name="activeStatus" formControlName="isactive" [disabled]="true" [(ngModel)]="branchDetails.isActive">Active Status</mat-checkbox>
+        </div>
+        <div class="button-group">
+          <button mat-raised-button color="primary">Update</button>
+          
+          <a  mat-raised-button color="warn" routerLink="/emp-branch">Cancel</a>
+        </div>
+  
+      </form>
+  
+    </div>
+  </div>
