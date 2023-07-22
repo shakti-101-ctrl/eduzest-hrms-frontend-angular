@@ -1,11 +1,50 @@
-<div class="login-form">
-    <h2>Login</h2>
-    <form>
-      <input type="text" placeholder="Username" name="username" [(ngModel)]="username" required>
-      <input type="password" placeholder="Password" name="password" [(ngModel)]="password" required>
-      <button type="submit">Login</button>
-      <div>
-        <h3>{{invalidUserMessage}}</h3>
+
+<diV class="login-form">
+  <mat-tab-group>
+    <mat-tab label="Login" [class.active]="activeTab === 'login'">
+       
+        <div style="margin: 20px;">
+         
+          <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+            <input type="text" placeholder="Username" id="loginuserid" formControlName="userid">
+            <div *ngIf="loginForm.get('userid')?.invalid && (loginForm.get('userid')?.dirty || loginForm.get('userid')?.touched)">
+              <small class="text-danger">User ID is required.</small>
+            </div>
+            <input type="password" placeholder="Password" id="loginpassword" formControlName="password">
+            <div *ngIf="loginForm.get('userid')?.invalid && (loginForm.get('userid')?.dirty || loginForm.get('userid')?.touched)">
+              <small class="text-danger">Password is required.</small>
+            </div>
+            <button type="submit" [disabled]="loginForm.invalid">Login</button>
+            <div>
+              <h3>{{invalidUserMessage}}</h3>
+            </div>
+          </form>
+        </div>
+    </mat-tab>
+    <mat-tab label="Registration" [class.active]="activeTab === 'register'"> 
+      <div style="margin: 20px;">
+        
+        <form [formGroup]="registrationForm" (ngSubmit)="onRegistrationSubmit()">
+          <input type="text" placeholder="User Id" id="registerUserid" formControlName="userid" required>
+          <div *ngIf="registrationForm.get('userid')?.invalid && (registrationForm.get('userid')?.dirty || registrationForm.get('userid')?.touched)">
+            <small class="text-danger">User ID is required.</small>
+          </div>
+          <input type="password" placeholder="Password" id="registerPassword" formControlName="password" required>
+          <div *ngIf="registrationForm.get('password')?.invalid && (registrationForm.get('password')?.dirty || registrationForm.get('password')?.touched)">
+            <small class="text-danger">Password is required.</small>
+          </div>
+          <input type="text" placeholder="Email address" id="registerPassword" formControlName="emailid" required>
+          <div *ngIf="registrationForm.get('email')?.invalid && (registrationForm.get('email')?.dirty || registrationForm.get('email')?.touched)">
+            <small class="text-danger">Email is required.</small>
+          </div>
+          <button type="submit">Register</button>
+          <div>
+            <h3>{{invalidUserMessage}}</h3>
+          </div>
+        </form>
       </div>
-    </form>
-  </div>
+    </mat-tab>
+  </mat-tab-group>
+  
+  
+</diV>

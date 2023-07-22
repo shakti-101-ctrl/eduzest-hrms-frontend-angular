@@ -24,7 +24,6 @@ export class EmpAddBranchComponent implements OnInit {
   }
   
   ngOnInit(): void {
-  
    this.registerForm = this.fb.group({
     branchname :['',Validators.required],
     city :['',Validators.required],
@@ -42,7 +41,7 @@ export class EmpAddBranchComponent implements OnInit {
       this.submitted = true;
       if (this.registerForm.valid) {
         this.branchDetails = this.registerForm.value;
-        console.log(this.branchDetails);
+        //console.log(this.branchDetails);
         this.empService.saveBranch(this.branchDetails).subscribe((result)=>{
           console.log(result);
           if(result['response']==200)

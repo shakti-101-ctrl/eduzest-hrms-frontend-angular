@@ -8,6 +8,7 @@ import { GetResponse } from 'src/app/Model/Response';
 import { BranchModel } from 'src/app/Model/Employee';
 import { AppService } from 'src/app/Service/app.service';
 import { Router } from '@angular/router';
+import { MatSort } from '@angular/material/sort';
 
 
 
@@ -22,14 +23,14 @@ export class EmpBranchComponent implements OnInit {
   mode:string = 'determinate';
   value = 50;
 
-  displayedColumns: string[] = ['branchName', 'state', 'city', "address", "email", "mobileNumber", "isActive", "actions"];
+  displayedColumns: string[] = ['branchName', 'state', 'city',"mobileNumber", "isActive", "actions"];
   dataSource: any;
   filteredData!: MatTableDataSource<any>;
   pageSizeOptions: number[] = [5, 10, 25, 50];
   pageSize: number = 5;
   isLoading: boolean = false;
-  @ViewChild(MatPaginator)
-  paginator!: MatPaginator;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort !: MatSort;
 
   constructor(private empservice: EmployeeService, private appService: AppService, private router: Router) {
   }
@@ -45,6 +46,7 @@ export class EmpBranchComponent implements OnInit {
         console.log(result);
         this.dataSource = new MatTableDataSource<BranchModel>(result['data']);
         this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       });
       // Once the data is fetched or the operation is complete, set isLoading to false
       this.isLoading = false;
@@ -74,7 +76,11 @@ export class EmpBranchComponent implements OnInit {
     //alert(this.appService.temp_data);
     this.router.navigate(['/emp-update-branch']);
   }
-  
+  //filter
+  Filterchange(event: Event) {
+    const filvalue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filvalue;
+  }
  
   ngAfterViewInit() {
     //this.dataSource.paginator = this.paginator;

@@ -39,3 +39,7 @@
   h3{
     color: red;
   }
+  button:disabled {
+    cursor: default; /* Set your desired cursor style here */
+  }
+  

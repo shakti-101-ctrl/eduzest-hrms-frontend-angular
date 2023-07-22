@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
+  //local
   host :"https://localhost:7159/api/"
+  
+  //iis
+   //host:"https://localhost:8082/api/"
 };
 
 /*

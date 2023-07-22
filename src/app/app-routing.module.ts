@@ -15,59 +15,60 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
 import { EmpLoginComponent } from './emp-login/emp-login.component';
 import { AppComponent } from './app.component';
 import { EmpUpdateBranchComponent } from './employee/emp-update-branch/emp-update-branch.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    component: WelcomeComponent
+    component: WelcomeComponent,canActivate:[AuthGuard]
   },
   {
     path: 'emp-branch',
-    component: EmpBranchComponent
+    component: EmpBranchComponent,canActivate:[AuthGuard] 
   },
   {
     path: 'emp-department',
-    component: EmpDepartmentComponent
+    component: EmpDepartmentComponent,canActivate:[AuthGuard] 
   },
   {
     path: 'emp-designation',
-    component: EmpDesignationComponent
+    component: EmpDesignationComponent,canActivate:[AuthGuard] 
   },
   {
     path: 'emp-details',
-    component: EmpDetailsComponent
+    component: EmpDetailsComponent,canActivate:[AuthGuard] 
   },
   {
     path: 'emp-salary-template',
-    component: EmpSalarytemplateComponent
+    component: EmpSalarytemplateComponent,canActivate:[AuthGuard] 
   },
   {
     path: 'emp-salary-assignment',
-    component: EmpSalaryAssignmentComponent
+    component: EmpSalaryAssignmentComponent,canActivate:[AuthGuard] 
   },
   {
     path: 'emp-add-branch',
-    component: EmpAddBranchComponent
+    component: EmpAddBranchComponent,canActivate:[AuthGuard] 
   },
   {
     path: 'emp-update-branch',
-    component: EmpUpdateBranchComponent
+    component: EmpUpdateBranchComponent,canActivate:[AuthGuard] 
   },
   {
     path: 'emp-add-dept',
-    component: EmpAddDepartmentComponent
+    component: EmpAddDepartmentComponent,canActivate:[AuthGuard] 
   },
   {
     path: 'emp-add-desig',
-    component: EmpAddDesignationComponent
+    component: EmpAddDesignationComponent,canActivate:[AuthGuard] 
   },
   {
     path: 'emp-add-details',
-    component: EmpAddDetailsComponent
+    component: EmpAddDetailsComponent,canActivate:[AuthGuard] 
   },
   {
     path: 'app-side-menu',
-    component: SideMenuComponent
+    component: SideMenuComponent,canActivate:[AuthGuard] 
   }
   ,
   {
