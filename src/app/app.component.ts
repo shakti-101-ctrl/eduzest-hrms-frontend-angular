@@ -24,4 +24,9 @@ export class AppComponent implements DoCheck {
       this.isSideMenu= true;
     }
   }
+  logOut()
+  {
+    localStorage.removeItem('token');
+    this.route.navigate(['app-emp-login']);
+  }
 }

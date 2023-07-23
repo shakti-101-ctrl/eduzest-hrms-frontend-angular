@@ -51,7 +51,7 @@ import { EmpLoginComponent } from './emp-login/emp-login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmpUpdateBranchComponent } from './employee/emp-update-branch/emp-update-branch.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -34,13 +34,11 @@
             <small class="text-danger">Password is required.</small>
           </div>
           <input type="text" placeholder="Email address" id="registerPassword" formControlName="emailid" required>
-          <div *ngIf="registrationForm.get('email')?.invalid && (registrationForm.get('email')?.dirty || registrationForm.get('email')?.touched)">
+          <div *ngIf="registrationForm.get('emailid')?.invalid && (registrationForm.get('emailid')?.dirty || registrationForm.get('email')?.touched)">
             <small class="text-danger">Email is required.</small>
           </div>
           <button type="submit">Register</button>
-          <div>
-            <h3>{{invalidUserMessage}}</h3>
-          </div>
+         
         </form>
       </div>
     </mat-tab>

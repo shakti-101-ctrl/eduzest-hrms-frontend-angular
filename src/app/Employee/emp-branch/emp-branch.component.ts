@@ -9,9 +9,7 @@ import { BranchModel } from 'src/app/Model/Employee';
 import { AppService } from 'src/app/Service/app.service';
 import { Router } from '@angular/router';
 import { MatSort } from '@angular/material/sort';
-
-
-
+import { PdfService } from 'src/app/Service/pdf.service';
 @Component({
   selector: 'app-emp-branch',
   templateUrl: './emp-branch.component.html',
@@ -32,12 +30,13 @@ export class EmpBranchComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
 
-  constructor(private empservice: EmployeeService, private appService: AppService, private router: Router) {
+  constructor(private empservice: EmployeeService, private appService: AppService, private router: Router,private pdfServive : PdfService) {
   }
   ngOnInit(): void {
     this.getAllBrach();
    
   }
+  
   getAllBrach() {
     this.isLoading = true;
 
