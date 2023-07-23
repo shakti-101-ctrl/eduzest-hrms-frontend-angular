@@ -36,7 +36,7 @@
             <i class="fas fa-download"></i>
             
           </button>
-          <button class="icon-button">
+          <button class="icon-button" (click)="ExportEXCEL()">
             <i class="fas fa-file-excel"></i>
             
           </button>
@@ -56,9 +56,9 @@
   
   <div class="inner-div" >
    
-    <div class="mat-elevation-z8" *ngIf="!isLoading">
+    <div class="mat-elevation-z8" *ngIf="!isLoading" #TABLE>
      
-      <table mat-table matSort [dataSource]="dataSource" id="tblBranch">
+      <table mat-table matSort [dataSource]="dataSource">
 
         <!-- Position Column -->
        

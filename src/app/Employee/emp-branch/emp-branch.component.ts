@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { AfterViewInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -9,34 +9,47 @@ import { BranchModel } from 'src/app/Model/Employee';
 import { AppService } from 'src/app/Service/app.service';
 import { Router } from '@angular/router';
 import { MatSort } from '@angular/material/sort';
-import { PdfService } from 'src/app/Service/pdf.service';
+import { IconEssentialService } from 'src/app/Service/icon-essential.service';
+
+export interface PeriodicElement {
+  branchname: string;
+  state: string;
+  city: string;
+  mobilenumber:string;
+  isactive:boolean;
+  email:string
+  
+}
 @Component({
   selector: 'app-emp-branch',
   templateUrl: './emp-branch.component.html',
   styleUrls: ['./emp-branch.component.css'],
 
 })
+
 export class EmpBranchComponent implements OnInit {
-  color:string = 'primary';
-  mode:string = 'determinate';
+  
+  color: string = 'primary';
+  mode: string = 'determinate';
   value = 50;
 
-  displayedColumns: string[] = ['branchName', 'state', 'city',"mobileNumber", "isActive", "actions"];
-  dataSource: any;
+  displayedColumns: string[] = ['branchName', 'state', 'city', "mobileNumber", "isActive", "actions"];
+  dataSource:any;
   filteredData!: MatTableDataSource<any>;
   pageSizeOptions: number[] = [5, 10, 25, 50];
   pageSize: number = 5;
   isLoading: boolean = false;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
+  @ViewChild('content') content!: ElementRef;  
 
-  constructor(private empservice: EmployeeService, private appService: AppService, private router: Router,private pdfServive : PdfService) {
+  constructor(private empservice: EmployeeService, private appService: AppService, private router: Router) {
   }
   ngOnInit(): void {
     this.getAllBrach();
-   
+
   }
-  
+
   getAllBrach() {
     this.isLoading = true;
 
@@ -80,7 +93,7 @@ export class EmpBranchComponent implements OnInit {
     const filvalue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filvalue;
   }
- 
+
   ngAfterViewInit() {
     //this.dataSource.paginator = this.paginator;
   }
@@ -92,5 +105,19 @@ export class EmpBranchComponent implements OnInit {
     }
 
   }
+ //export to excel
+  ExportEXCEL() {
+    const onlyNameAndSymbolArr: Partial<PeriodicElement>[] = 
+    this.dataSource.data.map((x: { branchName: any; state: any;city:any,mobileNumber:any,isActive:any,email:any }) => ({
+      branchname: x.branchName,
+      state:x.state,
+      city:x.city,
+      mobilenumber:x.mobileNumber,
+      email:x.email,
+      isactive:x.isActive?"Active":"Inactive"
+    }));
+    IconEssentialService.exportArrayToExcel(onlyNameAndSymbolArr, "Branch-details");
+  }
 }
+
 
