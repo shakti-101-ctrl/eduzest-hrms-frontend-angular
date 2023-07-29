@@ -35,7 +35,8 @@ export class EmpUpdateBranchComponent implements OnInit {
     state:['',Validators.required],
     mobilenumber:['',[Validators.required,Validators.pattern('^[0-9]{10}$')]],
     address:['',Validators.required],
-    isactive:[false,Validators.requiredTrue]
+    isactive:[false,Validators.requiredTrue],
+    branchId:this.branchDetails.branchId
    });
   }
   
@@ -43,6 +44,9 @@ export class EmpUpdateBranchComponent implements OnInit {
   {
     if(this.registerForm.valid)
     {
+      debugger;
+      //this.branchDetails = this.registerForm.value;
+      console.log(this.branchDetails);
       this.empService.updateBranch(this.branchDetails).subscribe(result=>{
 
         if(result['response']==200)

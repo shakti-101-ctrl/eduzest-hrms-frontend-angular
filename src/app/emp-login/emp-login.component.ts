@@ -3,6 +3,7 @@ import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../Service/auth.service';
 import { Login, Registration } from '../Model/adminModel';
+import { AppService } from '../Service/app.service';
 
 
 
@@ -12,7 +13,10 @@ import { Login, Registration } from '../Model/adminModel';
   styleUrls: ['./emp-login.component.css']
 })
 export class EmpLoginComponent implements OnInit {
- 
+  color: string = 'primary';
+  mode: string = 'determinate';
+  value = 50;
+
   isTrue: boolean = false;
   invalidUserMessage = '';
 
@@ -25,8 +29,10 @@ export class EmpLoginComponent implements OnInit {
   responsedata: any;
   responseRegistrationDtata:any;
 
+  isLoading : boolean=false;
+
   activeTab: 'login' | 'register' = 'login';
-  constructor(private route: Router, private formBuilder: FormBuilder,private authService:AuthService) {
+  constructor(private route: Router, private formBuilder: FormBuilder,private authService:AuthService,private appService : AppService) {
    
   }
 
@@ -49,28 +55,37 @@ export class EmpLoginComponent implements OnInit {
     this.activeTab = tabName;
   }
   onLoginSubmit() {
-    if (this.loginForm.valid) {
-     this.login = this.loginForm.value;
-     //console.log(this.login);
-      this.authService.ProceedLogin(this.login).subscribe(result=>
-        {
-          this.responsedata = result;
-          //console.log(result);
-          if(this.responsedata.token!=null)
-          {
-          localStorage.setItem('token',this.responsedata.token);
-          this.route.navigate([''])
-          }
-          else
-          {
-            alert("Inavlid userid or password!");
-          }
-        });
-    }
+    this.isLoading=true;
+    setTimeout(()=>{
+      if (this.loginForm.valid) {
+        this.login = this.loginForm.value;
+        //console.log(this.login);
+         this.authService.ProceedLogin(this.login).subscribe(result=>
+           {
+             this.responsedata = result;
+             //console.log(result);
+             if(this.responsedata.token!=null)
+             {
+             localStorage.setItem('token',this.responsedata.token);
+             this.appService.username = "admin";
+             this.route.navigate([''])
+             }
+             else
+             {
+               alert("Inavlid userid or password!");
+             }
+           });
+       }
+    },2000);
+    
+   
   }
 
   onRegistrationSubmit() {
-    if (this.registrationForm.valid) {
+    this.isLoading = true;
+    setTimeout(() => {
+    if (this.registrationForm.valid) 
+    {
       this.registration =this.registrationForm.value;
       this.authService.ProceedRegistration(this.registration).subscribe(result=>{
         this.responseRegistrationDtata = result;
@@ -84,5 +99,9 @@ export class EmpLoginComponent implements OnInit {
         } 
       });
     }
+      this.isLoading = false;
+    }, 2000);
+
+   
   }
 }

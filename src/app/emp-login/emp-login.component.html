@@ -1,4 +1,7 @@
-
+<div class="loader-container"  *ngIf="isLoading">
+  <mat-progress-spinner class="loader" [color]="color" mode="indeterminate" [value]="value" *ngIf="isLoading">
+  </mat-progress-spinner>
+</div>
 <diV class="login-form">
   <mat-tab-group>
     <mat-tab label="Login" [class.active]="activeTab === 'login'">

@@ -17,7 +17,8 @@
   <div class="inner-div">
     <div class="row">
       <div class="col-sm-3">
-        <a mat-raised-button color="accent" routerLink="/emp-add-branch"><i class="fa fa-plus" aria-hidden="true"></i> Add</a>
+        <a mat-raised-button color="accent" routerLink="/emp-add-branch"><i class="fa fa-plus" aria-hidden="true"></i> Add</a>&nbsp;
+        <a mat-raised-button color="accent" (click)="uploadCsv()"><i class="fa fa-csv" aria-hidden="true"></i>Upload CSV</a>
       </div>
       <div class="col-sm-6">
         <div class="search-box">
@@ -49,10 +50,7 @@
       </div>
 
     </div>
-    
-    
   </div>
-  
   
   <div class="inner-div" >
    
@@ -97,6 +95,10 @@
         <ng-container matColumnDef="mobileNumber">
           <th mat-header-cell *matHeaderCellDef> Contact </th>
           <td custom-cell mat-cell *matCellDef="let element"> {{element.mobileNumber}} </td>
+        </ng-container>
+        <ng-container matColumnDef="createdOn">
+          <th mat-header-cell mat-sort-header *matHeaderCellDef> Created On </th>
+          <td custom-cell mat-cell *matCellDef="let element"> {{element.createdOn |date: 'dd MMMM yyyy'}} </td>
         </ng-container>
 
         <ng-container matColumnDef="isActive">

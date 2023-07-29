@@ -26,7 +26,9 @@ export class EmployeeService {
   }
   updateBranch(data:BranchModel) : Observable<GetResponse>
   {
-    return this.httpClient.put<GetResponse>(`${this.host + "branch/putbranch/"}`,data);
+    let id:any=data.branchId;
+    debugger;
+    return this.httpClient.put<GetResponse>(`${this.host + "branch/putbranch/"+id}`,data);
   }
   getBranchById(id : string) : Observable<GetResponse>
   {

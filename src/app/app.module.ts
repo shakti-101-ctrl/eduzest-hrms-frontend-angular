@@ -51,6 +51,8 @@ import { EmpLoginComponent } from './emp-login/emp-login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmpUpdateBranchComponent } from './employee/emp-update-branch/emp-update-branch.component';
+import { CsvuploadComponent } from './Shared/csvupload/csvupload.component';
+//import { CsvuploadComponent } from './employee/emp-branch/csvupload/csvupload.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { EmpUpdateBranchComponent } from './employee/emp-update-branch/emp-updat
     EmpAddDetailsComponent,
     SideMenuComponent,
     EmpLoginComponent,
-    EmpUpdateBranchComponent
+    EmpUpdateBranchComponent,
+    CsvuploadComponent,
+    //CsvuploadComponent
   ],
   imports: [
     BrowserModule,

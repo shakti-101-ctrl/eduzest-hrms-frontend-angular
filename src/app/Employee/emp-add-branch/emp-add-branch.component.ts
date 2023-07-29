@@ -31,7 +31,8 @@ export class EmpAddBranchComponent implements OnInit {
     state:['',Validators.required],
     mobilenumber:['',[Validators.required,Validators.pattern('^[0-9]{10}$')]],
     address:['',Validators.required],
-    isactive:[false,Validators.requiredTrue]
+    isactive:[false,Validators.requiredTrue],
+    createdby:this.appService.username
    });
    
   }
@@ -40,7 +41,9 @@ export class EmpAddBranchComponent implements OnInit {
   {
       this.submitted = true;
       if (this.registerForm.valid) {
+      
         this.branchDetails = this.registerForm.value;
+        //this.branchDetails.createdBy = this.appService.username;
         //console.log(this.branchDetails);
         this.empService.saveBranch(this.branchDetails).subscribe((result)=>{
           console.log(result);

@@ -6,5 +6,9 @@ import { Injectable } from '@angular/core';
 export class AppService {
 
   temp_data : any;
+  selectedFile: File | null = null;
+  fileName ="";
+  username !:string;
+
   constructor() { }
 }

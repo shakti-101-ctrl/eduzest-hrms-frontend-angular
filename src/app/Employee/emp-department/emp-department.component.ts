@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { CsvuploadComponent } from 'src/app/Shared/csvupload/csvupload.component';
 
 export interface UserData {
   name: string;
@@ -22,7 +24,7 @@ export class EmpDepartmentComponent implements OnInit {
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
-  constructor() {
+  constructor(private dialog:MatDialog) {
     const users: UserData[] = [
       { name: 'John Doe', email: 'johndoe@example.com', phone: '1234567890' },
       { name: 'Jane Smith', email: 'janesmith@example.com', phone: '9876543210' },
@@ -41,6 +43,19 @@ export class EmpDepartmentComponent implements OnInit {
   onPageChange(event: PageEvent) {
     this.paginator.pageIndex = event.pageIndex;
     this.paginator.pageSize = event.pageSize;
+  }
+
+  uploadCsv() {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.position = {
+      top: '60px',
+      left: '500px'
+    };
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+
+    this.dialog.open(CsvuploadComponent, dialogConfig);
   }
 
 }
