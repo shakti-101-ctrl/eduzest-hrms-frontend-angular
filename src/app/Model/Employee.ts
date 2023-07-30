@@ -9,5 +9,10 @@ export interface BranchModel extends  ICommonProperties
     city: string
     state: string
     address: string
+    createdOn: any
+    updatedBy:string
+    createdBy: any
+    updatedOn:any
+    isActive: any
    
 }

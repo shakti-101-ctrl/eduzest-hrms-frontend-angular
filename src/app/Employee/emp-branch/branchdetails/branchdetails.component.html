@@ -1,0 +1,36 @@
+<h1>Branch Information Table</h1>
+<table>
+    <tr>
+        <th>Branch Name</th>
+        <th>Email</th>
+        <th>Mobile Number</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Address</th>
+        <th>Created On</th>
+        <th>Created By</th>
+        <th>Updated On</th>
+        <th>Updated by</th>
+        <th>Is Active</th>
+    </tr>
+    <tr>
+        <td>{{dataSource.branchName}}</td>
+        <td>{{dataSource.email}}</td>
+        <td>{{dataSource.mobileNumber}}</td>
+        <td>{{dataSource.city}}</td>
+        <td>{{dataSource.state}}</td>
+        <td>{{dataSource.address}}</td>
+        <td>{{dataSource.createdOn==null?"NA":dataSource.createdOn}}</td>
+        <td>{{dataSource.createdBy==null?"NA":dataSource.createdBy}}</td>
+        <td>{{dataSource.updatedOn==null?"NA":dataSource.updatedOn}}</td>
+        <td>{{dataSource.updatedBy==null?"NA":dataSource.updatedBy}}</td>
+        <td>{{dataSource.isActive==true?"Active":"In Active"}}</td>
+
+    </tr>
+
+    <!-- Add more rows for additional branches if needed -->
+</table>
+<div>
+    <hr/>
+   <button class="close-btn" (click)="closeDialog()">Close</button>
+</div>

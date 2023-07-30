@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BranchModel } from 'src/app/Model/Employee';
 import { AppService } from 'src/app/Service/app.service';
 import { EmployeeService } from 'src/app/Service/employee.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-emp-update-branch',
@@ -42,21 +43,24 @@ export class EmpUpdateBranchComponent implements OnInit {
   
   onSubmit()
   {
+
     if(this.registerForm.valid)
     {
-      debugger;
+      //debugger;
       //this.branchDetails = this.registerForm.value;
       console.log(this.branchDetails);
       this.empService.updateBranch(this.branchDetails).subscribe(result=>{
 
         if(result['response']==200)
         {
-          alert(result['message']);
-          this.router.navigate(['/emp-branch']);
+          Swal.fire('',result['message'],'success').then(()=>{
+            this.router.navigate(['/emp-branch']);
+          });
+          
         }
         else
         {
-          alert(result['message']);
+          Swal.fire('',result['message'],'error');
         }
       });
     }

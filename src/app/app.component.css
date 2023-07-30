@@ -61,4 +61,12 @@
   .footer-content p {
     margin: 0;
   }
+
+  a.active {
+    /* Your active menu item styles here */
+    font-weight: bold;
+    font-size: 15px;
+ 
+  }
+  
   

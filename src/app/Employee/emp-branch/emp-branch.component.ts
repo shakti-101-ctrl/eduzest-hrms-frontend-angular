@@ -12,6 +12,8 @@ import { MatSort } from '@angular/material/sort';
 import { IconEssentialService } from 'src/app/Service/icon-essential.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { CsvuploadComponent } from 'src/app/Shared/csvupload/csvupload.component';
+import { BranchdetailsComponent } from './branchdetails/branchdetails.component';
+import Swal from 'sweetalert2';
 
 export interface PeriodicElement {
   branchname: string;
@@ -67,24 +69,43 @@ export class EmpBranchComponent implements OnInit {
    }, 2000);
   }
   //delete
-  deleteBranch(branchid: string) {
-  
-    let flag = confirm("Are you sure ? ");
-   //setTimeout(() => {
-    if (flag) {
-  
-      this.empservice.deleteBranch(branchid).subscribe((result: GetResponse) => {
-        if (result['response'] == 200) {
-          alert(result['message']);
-          this.getAllBrach();
-        }
-        else {
 
-          alert(result['message']);
-        }
-      })
-    }
-  // }, 1000);
+
+  deleteBranch(branchid: string) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.empservice.deleteBranch(branchid).subscribe((result: GetResponse) => {
+          if (result['response'] == 200) {
+            Swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            ).then(()=>{
+              this.getAllBrach();
+            })
+            
+          }
+          else {
+  
+            Swal.fire(
+              'Deleted!',
+              result['message'],
+              'warning'
+            )
+          }
+        })
+      }
+    })
+   
+   
   }
   //edit
   editBranch(item: BranchModel) {
@@ -135,6 +156,21 @@ export class EmpBranchComponent implements OnInit {
     dialogConfig.autoFocus = true;
 
     this.dialog.open(CsvuploadComponent, dialogConfig);
+  }
+
+  viewBrachDetails(item:BranchModel) {
+    //console.log(item);
+    this.appService.temp_data = item;
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.position = {
+      top: '60px',
+      left: '500px'
+    };
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+
+    this.dialog.open(BranchdetailsComponent, dialogConfig);
   }
   
 }

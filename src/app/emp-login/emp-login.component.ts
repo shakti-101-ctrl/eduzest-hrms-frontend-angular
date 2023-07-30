@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../Service/auth.service';
 import { Login, Registration } from '../Model/adminModel';
 import { AppService } from '../Service/app.service';
+import Swal from 'sweetalert2';
 
 
 
@@ -91,17 +92,19 @@ export class EmpLoginComponent implements OnInit {
         this.responseRegistrationDtata = result;
         if(this.responseRegistrationDtata.response==200)
         {
-            alert("Registered Successfully!");
+            Swal.fire("Thank You...",this.responseRegistrationDtata.message,'success');
             this.activeTab = 'login';
         }
         else{
-          alert("Registration failed");
+          Swal.fire("",'User already exits','error');
         } 
       });
     }
       this.isLoading = false;
     }, 2000);
 
-   
   }
+
+
+ 
 }

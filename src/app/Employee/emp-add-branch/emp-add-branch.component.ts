@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BranchModel } from 'src/app/Model/Employee';
 import { AppService } from 'src/app/Service/app.service';
 import { EmployeeService } from 'src/app/Service/employee.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -49,14 +50,23 @@ export class EmpAddBranchComponent implements OnInit {
           console.log(result);
           if(result['response']==200)
           {
-            alert(result['message']);
-            this.router.navigate(['/emp-branch'])
+            //alert(result['message']);
+            Swal.fire({
+              position : 'center',
+              icon:'success',
+              title:'Your work has been saved',
+              showConfirmButton:true
+              
+            }).then((result)=>
+            {
+              this.router.navigate(['/emp-branch'])
+            });
+            
           }
           else
           {
             alert(result['message']);
           }
-  
         });
         
       }

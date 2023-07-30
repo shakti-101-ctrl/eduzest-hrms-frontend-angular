@@ -52,6 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmpUpdateBranchComponent } from './employee/emp-update-branch/emp-update-branch.component';
 import { CsvuploadComponent } from './Shared/csvupload/csvupload.component';
+
 //import { CsvuploadComponent } from './employee/emp-branch/csvupload/csvupload.component';
 
 @NgModule({
@@ -114,7 +115,8 @@ import { CsvuploadComponent } from './Shared/csvupload/csvupload.component';
     MatTooltipModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+   
     
   ],
   providers: [],
