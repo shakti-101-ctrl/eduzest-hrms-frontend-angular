@@ -16,3 +16,15 @@ export interface BranchModel extends  ICommonProperties
     isActive: any
    
 }
+
+export class DepartmentModel {
+    deptId: string='';
+    departmentName: string='';
+    branchId: string='';
+    branchName: string='';
+    createdOn: string='';
+    updatedBy: any='';
+    createdBy: string=''
+    updatedOn: any
+    isActive: boolean=true;
+}

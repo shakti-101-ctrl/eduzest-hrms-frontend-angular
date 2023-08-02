@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { BranchModel } from '../Model/Employee';
+import { BranchModel, DepartmentModel } from '../Model/Employee';
 import { Observable } from 'rxjs';
 import { CudResponse, GetResponse } from '../Model/Response';
 
@@ -39,4 +39,28 @@ export class EmployeeService {
   {
     return this.httpClient.delete<GetResponse>(`${this.host + "branch/deletebranch/"+id}`);
   }
+  //-----------------------------------department-------------------------------------------------
+  getAllDepartment() : Observable<GetResponse>
+  {
+    return this.httpClient.get<GetResponse>(`${this.host + "department/getdepartments"}`);
+  }
+  saveDepartment(data : DepartmentModel) : Observable<GetResponse>
+  {
+    return this.httpClient.post<GetResponse>(`${this.host + "department/postdepartment"}`,data);
+  }
+  updateDepartment(data:DepartmentModel) : Observable<GetResponse>
+  {
+    let id:any=data.branchId;
+    return this.httpClient.put<GetResponse>(`${this.host + "department/putdepartment/"+id}`,data);
+  }
+  getDepartmentById(id : string) : Observable<GetResponse>
+  {
+    return this.httpClient.get<GetResponse>(`${this.host + "department/departmentbyid/" + id}`);
+  }
+
+  deleteDepartment(id : string) : Observable<GetResponse>
+  {
+    return this.httpClient.delete<GetResponse>(`${this.host + "department/deletedepartment/"+id}`);
+  }
+  //-----------------------------------end-department---------------------------------------------
 }
