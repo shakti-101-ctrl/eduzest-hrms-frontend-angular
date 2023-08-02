@@ -297,3 +297,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   height: 100px; /* You can adjust the size of the spinner */
 }
 
+.swal-wide
+{
+  width : 850px!important;
+}

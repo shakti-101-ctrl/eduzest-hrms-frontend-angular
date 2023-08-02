@@ -9,9 +9,7 @@
           <mat-form-field>
             <mat-label>Branch Name</mat-label>
             <input matInput placeholder="Branch Name" formControlName="branchname" tabindex="1">
-            <div *ngIf="registerForm.get('userid')?.invalid && (registerForm.get('userid')?.dirty || registerForm.get('userid')?.touched)">
-              <small class="text-danger">Branch name required.</small>
-            </div>
+           
           </mat-form-field>
         
         </div>
