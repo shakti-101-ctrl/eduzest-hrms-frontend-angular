@@ -35,7 +35,18 @@ export class EmpDepartmentComponent implements OnInit {
   filteredData!: MatTableDataSource<any>;
   buttonText: string = "Save";
 
-  department: DepartmentModel = new DepartmentModel();
+  department: DepartmentModel =
+    {
+      deptId: '',
+      departmentName: '',
+      branchId: '',
+      branchName: '',
+      createdOn: '',
+      updatedBy: '',
+      createdBy: '',
+      updatedOn: '',
+      isActive: false
+    };
   pageSizeOptions: number[] = [5, 10, 25, 50];
   pageSize: number = 5;
 
@@ -58,16 +69,23 @@ export class EmpDepartmentComponent implements OnInit {
       departmentName: ['', Validators.required],
       isactive: [false, Validators.requiredTrue],
     });
-   
+
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
+    //this.dataSource.paginator = this.paginator;
   }
-
+  //filter
+  Filterchange(event: Event) {
+    const filvalue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filvalue;
+  }
   onPageChange(event: PageEvent) {
-    this.paginator.pageIndex = event.pageIndex;
-    this.paginator.pageSize = event.pageSize;
+    if (this.dataSource != null) {
+      this.paginator.pageIndex = event.pageIndex;
+      this.paginator.pageSize = event.pageSize;
+    }
+
   }
   loadBranch() {
     this.empservice.getAllBrances().subscribe((result: GetResponse) => {
@@ -80,12 +98,11 @@ export class EmpDepartmentComponent implements OnInit {
     });
   }
   saveOrUpdate() {
-    if (this.department != null) {
-     
+    if (this.department.deptId != '') {
+      debugger;
+
       if (this.deptForm.valid) {
-        //debugger;
-        //this.branchDetails = this.registerForm.value;
-        //console.log(this.branchDetails);
+
         this.empservice.updateDepartment(this.department).subscribe(result => {
 
           if (result['response'] == 200) {
@@ -101,9 +118,48 @@ export class EmpDepartmentComponent implements OnInit {
       }
     }
     else {
-      //add
-      alert("save...");
+      if (this.deptForm.valid) {
+
+        this.department = this.deptForm.value;
+        //this.branchDetails.createdBy = this.appService.username;
+        //console.log(this.branchDetails);
+        this.empservice.saveDepartment(this.department).subscribe((result) => {
+          console.log(result);
+          if (result['response'] == 200) {
+            //alert(result['message']);
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Your work has been saved',
+              showConfirmButton: true
+
+            }).then((result) => {
+              this.clearData();
+              this.getAllDepartments();
+              this.router.navigate(['/emp-department'])
+            });
+
+          }
+          else {
+            alert(result['message']);
+          }
+        });
+
+      }
     }
+  }
+  clearData() {
+    this.department = {
+      deptId: '',
+      departmentName: '',
+      branchId: '',
+      branchName: '',
+      createdOn: '',
+      updatedBy: '',
+      createdBy: '',
+      updatedOn: '',
+      isActive: false
+    };
   }
   bindDataForEdit(data: DepartmentModel) {
     this.buttonText = "Update";

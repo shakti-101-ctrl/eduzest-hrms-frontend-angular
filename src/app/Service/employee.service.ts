@@ -50,7 +50,8 @@ export class EmployeeService {
   }
   updateDepartment(data:DepartmentModel) : Observable<GetResponse>
   {
-    let id:any=data.branchId;
+    debugger;
+    let id:any=data.deptId;
     return this.httpClient.put<GetResponse>(`${this.host + "department/putdepartment/"+id}`,data);
   }
   getDepartmentById(id : string) : Observable<GetResponse>
