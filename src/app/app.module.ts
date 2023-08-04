@@ -52,6 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EmpUpdateBranchComponent } from './employee/emp-update-branch/emp-update-branch.component';
 import { CsvuploadComponent } from './Shared/csvupload/csvupload.component';
+import { DepartmentdetailsComponent } from './Employee/emp-department/departmentdetails/departmentdetails.component';
 
 //import { CsvuploadComponent } from './employee/emp-branch/csvupload/csvupload.component';
 
@@ -73,6 +74,8 @@ import { CsvuploadComponent } from './Shared/csvupload/csvupload.component';
     EmpLoginComponent,
     EmpUpdateBranchComponent,
     CsvuploadComponent,
+    
+    DepartmentdetailsComponent,
     //CsvuploadComponent
   ],
   imports: [

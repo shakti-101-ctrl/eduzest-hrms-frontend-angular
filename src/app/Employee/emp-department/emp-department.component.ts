@@ -11,6 +11,8 @@ import { AppService } from 'src/app/Service/app.service';
 import { EmployeeService } from 'src/app/Service/employee.service';
 import { CsvuploadComponent } from 'src/app/Shared/csvupload/csvupload.component';
 import Swal from 'sweetalert2';
+import { DepartmentdetailsComponent } from 'src/app/Employee/emp-department/departmentdetails/departmentdetails.component';
+import { IconEssentialService } from 'src/app/Service/icon-essential.service';
 
 export interface UserData {
   name: string;
@@ -229,4 +231,35 @@ export class EmpDepartmentComponent implements OnInit {
     this.dialog.open(CsvuploadComponent, dialogConfig);
   }
 
+  //view Details
+  viewDepartmentDetails(item:DepartmentModel) {
+    //console.log(item);
+    this.appService.temp_data = item;
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.position = {
+      top: '60px',
+      left: '500px'
+    };
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+
+    this.dialog.open(DepartmentdetailsComponent, dialogConfig);
+  }
+//export to excel
+ExportEXCEL() {
+  const onlyNameAndSymbolArr: Partial<DepartmentModel>[] = 
+  this.dataSource.data.map((x: { deptId:any;departmentName:any;branchId:any;branchName:any;createdOn:any;createdBy:any;updatedOn:any;updatedBy:any;isActive:any }) => ({
+    deptId: x.deptId,
+    departmentname:x.departmentName,
+    branchid:x.branchId?x.branchId:"NA",
+    branchname:x.branchName?x.branchName:"NA",
+    createdon:x.createdOn?x.createdOn:"NA",
+    createdby:x.createdBy?x.createdBy:"NA",
+    updatedon:x.updatedOn?x.updatedOn:"NA",
+    updatedby:x.updatedBy?x.updatedBy:"NA",
+    isactive:x.isActive?"Active":"Inactive"
+  }));
+  IconEssentialService.exportArrayToExcel(onlyNameAndSymbolArr, "department-details");
+}
 }
