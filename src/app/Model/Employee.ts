@@ -28,3 +28,18 @@ export interface DepartmentModel {
     updatedOn: any
     isActive: boolean
 }
+
+export interface DesignationModel {
+    desigid?:string;
+    designationName?:string;
+    branchId?:string;
+    branchName?:string;
+    departmentId?:string;
+    departmentName?:string;
+    createdOn:any;
+    createdBy?:string;
+    updatedOn:any;
+    updatedBy?:string;
+    isActive:any;
+}
+

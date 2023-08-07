@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { BranchModel, DepartmentModel } from '../Model/Employee';
+import { BranchModel, DepartmentModel, DesignationModel } from '../Model/Employee';
 import { Observable } from 'rxjs';
 import { CudResponse, GetResponse } from '../Model/Response';
 
@@ -62,6 +62,36 @@ export class EmployeeService {
   deleteDepartment(id : string) : Observable<GetResponse>
   {
     return this.httpClient.delete<GetResponse>(`${this.host + "department/deletedepartment/"+id}`);
+  }
+  //-----------------------------------end-department---------------------------------------------
+
+  //-----------------------------------dedignation-------------------------------------------------
+  getAllDesignation() : Observable<GetResponse>
+  {
+    return this.httpClient.get<GetResponse>(`${this.host + "designation/getdesignations"}`);
+  }
+  saveDesignation(data : DesignationModel) : Observable<GetResponse>
+  {
+    return this.httpClient.post<GetResponse>(`${this.host + "designation/postdesignation"}`,data);
+  }
+  updateDesignation(data:DesignationModel) : Observable<GetResponse>
+  {
+    debugger;
+    let id:any=data.desigid;
+    return this.httpClient.put<GetResponse>(`${this.host + "designation/putdesignation/"+id}`,data);
+  }
+  getDesignationById(id : string) : Observable<GetResponse>
+  {
+    return this.httpClient.get<GetResponse>(`${this.host + "designation/getdesignationbyid/" + id}`);
+  }
+
+  deleteDesignation(id : string) : Observable<GetResponse>
+  {
+    return this.httpClient.delete<GetResponse>(`${this.host + "designation/deletedesignation/"+id}`);
+  }
+  getDepartmentByBranch(id:string)
+  {
+    return this.httpClient.get<GetResponse>(`${this.host + "designation/getdepartmentbybranchId/"+id}`);
   }
   //-----------------------------------end-department---------------------------------------------
 }

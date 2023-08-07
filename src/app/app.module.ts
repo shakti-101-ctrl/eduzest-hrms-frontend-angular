@@ -54,6 +54,7 @@ import { EmpUpdateBranchComponent } from './employee/emp-update-branch/emp-updat
 import { CsvuploadComponent } from './Shared/csvupload/csvupload.component';
 import { DepartmentdetailsComponent } from './Employee/emp-department/departmentdetails/departmentdetails.component';
 
+
 //import { CsvuploadComponent } from './employee/emp-branch/csvupload/csvupload.component';
 
 @NgModule({
@@ -76,6 +77,7 @@ import { DepartmentdetailsComponent } from './Employee/emp-department/department
     CsvuploadComponent,
     
     DepartmentdetailsComponent,
+       
     //CsvuploadComponent
   ],
   imports: [
