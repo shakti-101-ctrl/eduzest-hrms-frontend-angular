@@ -30,7 +30,7 @@ export class EmpDesignationComponent implements OnInit {
   value = 50;
   //end of mat progrss
 
-  displayedColumns: string[] = ['branchName', 'departmentName', 'designationName', 'createdOn', 'isActive', 'actions'];
+  displayedColumns: string[] = ['branchName', 'departmentName', 'designationname', 'createdOn', 'isActive', 'actions'];
   pageSizeOptions: number[] = [5, 10, 25, 50];
   pageSize: number = 5;
 
@@ -43,7 +43,7 @@ export class EmpDesignationComponent implements OnInit {
   designation: DesignationModel =
     {
       desigid: '',
-      designationName: '',
+      designationname: '',
       branchId: '',
       branchName: '',
       departmentId: '',
@@ -136,7 +136,11 @@ export class EmpDesignationComponent implements OnInit {
 
           if (result['response'] == 200) {
             Swal.fire('', result['message'], 'success').then(() => {
+              this.loadDesignations();
+              this.clearData();
+              this.buttonText="Save";
               this.router.navigate(['/emp-designation']);
+              
             });
 
           }
@@ -180,7 +184,7 @@ export class EmpDesignationComponent implements OnInit {
     this.designation =
     {
       desigid: '',
-      designationName: '',
+      designationname: '',
       branchId: '',
       branchName: '',
       departmentId: '',
@@ -196,6 +200,7 @@ export class EmpDesignationComponent implements OnInit {
   bindDataForEdit(data: DesignationModel) {
     this.buttonText = "Update";
     this.designation = data;
+    this.onChangeBranch(this.designation.branchId);
     //console.log(this.department);
   }
 

@@ -44,7 +44,7 @@
             <div class="row">
               <mat-form-field class="example-form-field">
                 <mat-label>Designation Name</mat-label>
-                <input matInput placeholder="Designation name" [(ngModel)]="designation.designationName"
+                <input matInput placeholder="Designation name" [(ngModel)]="designation.designationname"
                   formControlName="designationName">
               </mat-form-field>
             </div>
@@ -120,9 +120,9 @@
                 <td mat-cell *matCellDef="let element"> {{element.departmentName}} </td>
               </ng-container>
 
-              <ng-container matColumnDef="designationName">
+              <ng-container matColumnDef="designationname">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Designation </th>
-                <td mat-cell *matCellDef="let element"> {{element.designationName}} </td>
+                <td mat-cell *matCellDef="let element"> {{element.designationname}} </td>
               </ng-container>
 
               <!-- Weight Column -->

@@ -87,7 +87,7 @@ export class EmployeeService {
 
   deleteDesignation(id : string) : Observable<GetResponse>
   {
-    return this.httpClient.delete<GetResponse>(`${this.host + "designation/deletedesignation/"+id}`);
+    return this.httpClient.delete<GetResponse>(`${this.host + "designation/deletedesigantion/"+id}`);
   }
   getDepartmentByBranch(id:string)
   {

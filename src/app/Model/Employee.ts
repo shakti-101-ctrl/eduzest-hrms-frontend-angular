@@ -31,7 +31,7 @@ export interface DepartmentModel {
 
 export interface DesignationModel {
     desigid?:string;
-    designationName?:string;
+    designationname?:string;
     branchId?:string;
     branchName?:string;
     departmentId?:string;
